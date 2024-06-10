@@ -33,24 +33,23 @@ let store = {
     },
     rerenderTree () {},
 
-    addPost() {
-        const NewPost = {
-            id : 5,
-            name: "Oleg",
-            image: 'Ita.jpeg',
-            message: this._state.profilePage.newPostText,
-            likesCount: 0
-        };
-        this._state.profilePage.posts.push(NewPost)
-        this._state.profilePage.newPostText = ''
-        this._rerenderTree(this._state)
+    dispatch(action){
+        if(action.type === 'ADD-POST'){
+            const NewPost = {
+                id : 5,
+                name: "Oleg",
+                image: 'Ita.jpeg',
+                message: this._state.profilePage.newPostText,
+                likesCount: 0
+            };
+            this._state.profilePage.posts.push(NewPost)
+            this._state.profilePage.newPostText = ''
+            this._rerenderTree(this._state)
+        } else if (action.type === 'UPDATE-NEW-POST-TEXT'){
+            this._state.profilePage.newPostText = action.newText
+            this._rerenderTree(this._state)
+        }
     },
-
-    updateNewposttext(newText) {
-        this._state.profilePage.newPostText = newText
-        this._rerenderTree(this._state)
-    },
-
     addMess() {
         const NewMess = {
             id: 4, 
@@ -69,5 +68,5 @@ let store = {
     sub(server){
         this._rerenderTree = server
     }
-};
+}
 export default store

@@ -9,8 +9,8 @@ const root = ReactDOM.createRoot(document.getElementById('root'))
 export let rerenderTree = () => {
     root.render(
         <App appState = {store.getState()} 
-            addPost = {store.addPost.bind(store)} 
-            updateNewposttext = {store.updateNewposttext.bind(store)}
+            dispatch = {store.dispatch.bind(store)} 
+            
             addMess = {store.addMess.bind(store)}
             updateNewMess = {store.updateNewMess.bind(store)}
         />

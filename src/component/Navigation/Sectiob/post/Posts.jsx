@@ -14,12 +14,14 @@ const Posts = (props) => {
     let createRefs = React.createRef()
 
     let addPost = () =>{
-      props.addPost()
+      props.dispatch({type: 'ADD-POST'})
     };
+
     let Changes = () => {
       let data = createRefs.current.value;
-      props.updateNewposttext(data)
+      props.dispatch({type: 'UPDATE-NEW-POST-TEXT', newText : data})
     };
+
     let Sub = (e) => {
       e.preventDefault()
     }

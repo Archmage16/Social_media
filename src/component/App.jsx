@@ -17,17 +17,16 @@ export const App = (props) => {
         <Head />
         <Menu />
         <Routes>
-          <Route index element={
+          {/* <Route index element={
             <Profile 
               profilePage={props.appState.profilePage} 
               addPost = {props.addPost} 
               updateNewposttext = {props.updateNewposttext} 
-            />} />
+            />} /> */}
 
           <Route path='Profile' element={
             <Profile profilePage={props.appState.profilePage} 
-              addPost = {props.addPost} 
-              updateNewposttext = {props.updateNewposttext}
+              dispatch = {props.dispatch} 
             />}/>
           
           <Route path='Dialogs' element={<Dialogs 
