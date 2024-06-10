@@ -1,0 +1,26 @@
+.postimage{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+.df{
+    margin-top: 5px;
+    display: flex;
+}
+li{
+    height: 50px;
+}
+.likes{
+    background-color: chocolate;
+    padding: 10px 15px;
+    font-size: 30px;
+    border: none;
+    cursor: pointer;
+}
+.name{
+    font-size: 30px;
+    color: white;
+}
+.likes:hover{
+    color: aqua;
+}
