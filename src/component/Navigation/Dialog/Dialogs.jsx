@@ -2,6 +2,7 @@ import React from 'react'
 import './dialogs.css'
 import Dialog from './DialogsDatas/DialogItem'
 import Message, { News } from './message/MessageItem'
+import { addMessAction, updateNewMessAction } from '../../../redux/state'
 
 const Dialogs = (props) => {
   
@@ -17,11 +18,11 @@ const Dialogs = (props) => {
   let newRef = React.createRef()
 
   let addMess = () =>{
-    props.addMess()
+    props.dispatch(addMessAction())
   };
   let updateNewMess = () => {
     let datas = newRef.current.value;
-    props.updateNewMess(datas)
+    props.dispatch(updateNewMessAction(datas))
   };
   let Sub = (e) => {
     e.preventDefault()

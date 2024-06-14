@@ -31,6 +31,7 @@ let store = {
     getState(){
         return this._state
     },
+    
     rerenderTree () {},
 
     dispatch(action){
@@ -49,24 +50,36 @@ let store = {
             this._state.profilePage.newPostText = action.newText
             this._rerenderTree(this._state)
         }
-    },
-    addMess() {
-        const NewMess = {
-            id: 4, 
-            messages: this._state.messagePage.Newmess
-        };
-        this._state.messagePage.MessagesNews.push(NewMess)
-        this._state.messagePage.Newmess = ''
-        this._rerenderTree()
-    },
-
-    updateNewMess(New) {
-        this._state.messagePage.Newmess = New
-        this._rerenderTree()
+        if(action.type === "ADD-MESSAGE"){
+            const NewMess = {
+                id: 4, 
+                messages: this._state.messagePage.Newmess
+            };
+            this._state.messagePage.MessagesNews.push(NewMess)
+            this._state.messagePage.Newmess = ''
+            this._rerenderTree()
+        } else if(action.type === 'UPDATE-NEW-MESSAGE'){
+            this._state.messagePage.Newmess = action.New
+            this._rerenderTree()
+        }
     },
 
     sub(server){
         this._rerenderTree = server
-    }
+    }    
 }
+
+export const addPostAction = () =>{
+    return {type: 'ADD-POST'}
+}
+export const ChangesAction = (data) => {
+    return {type: 'UPDATE-NEW-POST-TEXT', newText : data}
+}
+export const addMessAction = () =>{
+    return {type: "ADD-MESSAGE"}
+}
+export const updateNewMessAction = (datas) =>{
+    return {type: "UPDATE-NEW-MESSAGE", New: datas}
+}
+
 export default store

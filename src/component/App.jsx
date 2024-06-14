@@ -26,13 +26,12 @@ export const App = (props) => {
 
           <Route path='Profile' element={
             <Profile profilePage={props.appState.profilePage} 
-              dispatch = {props.dispatch} 
+              dispatch = {props.dispatchProf} 
             />}/>
           
           <Route path='Dialogs' element={<Dialogs 
             messageState={props.appState.messagePage} 
-            addMess = {props.addMess}
-            updateNewMess = {props.updateNewMess}
+            dispatch = {props.dispatchMess}
             />} />
 
           <Route path='News' element={<New />} />
