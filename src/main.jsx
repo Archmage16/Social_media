@@ -1,4 +1,4 @@
-import store from './redux/state'
+import store from './redux/rudex-store'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { App } from './component/App'
@@ -6,15 +6,17 @@ import { App } from './component/App'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 
-export let rerenderTree = () => {
+let rerenderTree = (state) => {
     root.render(
-        <App appState = {store.getState()} 
+        <App appState = {state} 
             dispatchProf = {store.dispatch.bind(store)} 
             dispatchMess = {store.dispatch.bind(store)}
-        />
-    )
+        />)
 }
 rerenderTree(store.getState())
 
 
-store.sub(rerenderTree)
+store.subscribe(() => {
+    let state = store.getState()
+    rerenderTree(state)
+})

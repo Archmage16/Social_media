@@ -1,15 +1,15 @@
 import React from 'react'
 import Post from './Post';
 import './post.css'
-import { ChangesAction, addPostAction } from '../../../../redux/state';
+import { ChangesAction, addPostAction } from '../../../../redux/Prof-red';
 
 
 
 const Posts = (props) => {
-
   let postElements = 
     props.posts.map(p => 
       <Post message={p.message} key={p.id} image={p.image} name={p.name} />);
+
     let createRefs = React.createRef()
 
     let addPost = () =>{

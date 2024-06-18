@@ -2,7 +2,7 @@ import React from 'react'
 import './dialogs.css'
 import Dialog from './DialogsDatas/DialogItem'
 import Message, { News } from './message/MessageItem'
-import { addMessAction, updateNewMessAction } from '../../../redux/state'
+import { addMessAction, updateNewMessAction } from '../../../redux/Dial-red'
 
 const Dialogs = (props) => {
   

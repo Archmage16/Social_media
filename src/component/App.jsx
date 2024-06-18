@@ -10,27 +10,24 @@ import { Settings } from './Navigation/Set/Settings'
 import { Musics } from './Navigation/Music/Musics'
 
 export const App = (props) => {
-  
+
   return (
     <BrowserRouter>
       <div className='App-wraper'>
         <Head />
         <Menu />
         <Routes>
-          {/* <Route index element={
-            <Profile 
-              profilePage={props.appState.profilePage} 
-              addPost = {props.addPost} 
-              updateNewposttext = {props.updateNewposttext} 
-            />} /> */}
+          <Route index element={<Profile profilePage={props.appState.Profile} 
+              dispatch = {props.dispatchProf} 
+            />}/>
 
           <Route path='Profile' element={
-            <Profile profilePage={props.appState.profilePage} 
+            <Profile profilePage={props.appState.Profile} 
               dispatch = {props.dispatchProf} 
             />}/>
           
-          <Route path='Dialogs' element={<Dialogs 
-            messageState={props.appState.messagePage} 
+          <Route path='Dialogs/' element={<Dialogs 
+            messageState={props.appState.Dialog} 
             dispatch = {props.dispatchMess}
             />} />
 
