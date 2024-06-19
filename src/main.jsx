@@ -2,20 +2,20 @@ import store from './redux/rudex-store'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { App } from './component/App'
-// import { addMess, addPost, updateNewMess, updateNewposttext } from './redux/state'
+import { BrowserRouter } from 'react-router-dom'
+import Context from './Context'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 
-let rerenderTree = (state) => {
+let rerenderTree = () => {
     root.render(
-        <App appState = {state} 
-            // dispatchProf = {store.dispatch.bind(store)} 
-            dispatchMess = {store.dispatch.bind(store)}
-            store = {store}
-        />)
+        <BrowserRouter>
+            <Context.Provider value={store}>
+                <App />   
+            </Context.Provider> 
+        </BrowserRouter>)
 }
 rerenderTree(store.getState())
-// console.log(store.getState().Profile.posts);
 
 store.subscribe(() => {
     let state = store.getState()
