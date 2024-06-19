@@ -9,12 +9,13 @@ const root = ReactDOM.createRoot(document.getElementById('root'))
 let rerenderTree = (state) => {
     root.render(
         <App appState = {state} 
-            dispatchProf = {store.dispatch.bind(store)} 
+            // dispatchProf = {store.dispatch.bind(store)} 
             dispatchMess = {store.dispatch.bind(store)}
+            store = {store}
         />)
 }
 rerenderTree(store.getState())
-
+// console.log(store.getState().Profile.posts);
 
 store.subscribe(() => {
     let state = store.getState()

@@ -1,7 +1,6 @@
 import React from 'react'
 import Post from './Post';
 import './post.css'
-import { ChangesAction, addPostAction } from '../../../../redux/Prof-red';
 
 
 
@@ -13,12 +12,13 @@ const Posts = (props) => {
     let createRefs = React.createRef()
 
     let addPost = () =>{
-      props.dispatch(addPostAction())
+      // props.dispatch(addPostAction())
+      props.addPosts()
     };
 
     let Changes = () => {
       let data = createRefs.current.value;
-      props.dispatch(ChangesAction(data))
+      props.Changese(data)
     };
 
     let Sub = (e) => {
